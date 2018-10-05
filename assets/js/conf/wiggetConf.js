@@ -68,17 +68,7 @@ const infiniteHitsConfEvent = {
 
 const searchBoxConf =  {
   container: '#search-input',
-  poweredBy: false
+  poweredBy: true
 };
 
-const statsConf =  {
-  container: '#stats',
-  templates: {
-    body: function (data) {
-      const template_builder = new Template_builder(data);
-      return template_builder.get_template_stats();
-    }
-  }
-};
-
-export {configureConf, menuSelectConf, refinementListConf, infiniteHitsConf, searchBoxConf, infiniteHitsConfEvent, statsConf};
+export {configureConf, menuSelectConf, refinementListConf, infiniteHitsConf, searchBoxConf, infiniteHitsConfEvent};

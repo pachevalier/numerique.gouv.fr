@@ -92,7 +92,7 @@ header {
   }
 }
 
-#fil-ariane {
+#file-arianne {
   font-size: smaller;
 
   @include breakpoint(medium down) {
@@ -194,11 +194,5 @@ footer {
     }
   }
 
-}
-
-#button-production {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
 }
 

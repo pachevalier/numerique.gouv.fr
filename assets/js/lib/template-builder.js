@@ -20,9 +20,9 @@ export class Template_builder {
               <img alt="icon ${ hit_helper.get_first_category() }" class="icon category-icon" src="${ hit_helper.select_icon_link() }">
               <span class="h6">${ hit_helper.get_first_category() }</span>
               {{/category}}
-              <h3 class="h5 font-bold margin-bottom-0-5">${ this.data._highlightResult.title.value }</h3>
+              <p class="h5 font-bold margin-bottom-0-5">${ this.data._highlightResult.title.value }</p>
               {{#date}}
-              <time class="post-meta h6 date">${ hit_helper.get_date_formated() }</time>
+              <p class="post-meta h6 date">${ hit_helper.get_date_formated() }</p>
               {{/date}}
               <p>${ hit_helper.get_most_valuable_content() }</p>
             </div>
@@ -33,7 +33,7 @@ export class Template_builder {
     return template.render({date:hit_helper.get_date_formated(), category:hit_helper.get_first_category()});
   };
   get_template_event() {
-    const hit_helper = new Hit_helper(this.data);
+    const hit_helper = new Hit_helper(this.data)
     const image = hit_helper.select_image("une-ou-diaporama");
     const template = hogan.compile(`
           <div>
@@ -46,9 +46,9 @@ export class Template_builder {
               <img alt="icon ${ hit_helper.get_first_category() }" class="icon category-icon" src="${ hit_helper.select_icon_link() }">
               <span class="h6">${ hit_helper.get_first_category() }</span>
               {{/category}}
-              <h3 class="h5 font-bold margin-bottom-0-5">${ this.data._highlightResult.title.value }</h3>
+              <p class="h5 font-bold margin-bottom-0-5">${ this.data._highlightResult.title.value }</p>
               {{#date}}
-              <time class="post-meta h6 date">${ hit_helper.get_event_date_formated() }</time>
+              <p class="post-meta h6 date">${ hit_helper.get_event_date_formated() }</p>
               {{/date}}
               <p>${ hit_helper.get_most_valuable_content() }</p>
             </div>
@@ -57,7 +57,6 @@ export class Template_builder {
         `);
     return template.render({date:hit_helper.get_date_formated(), category:hit_helper.get_first_category()});
   };
-
   get_template_tags() {
     const template =  hogan.compile(`
       <a href="${ this.data.url }" class=" tag-select {{#isRefined}}selected{{/isRefined}}">
@@ -65,12 +64,5 @@ export class Template_builder {
       </a>
     `);
     return template.render({isRefined:this.data.isRefined});
-  };
-  get_template_stats() {
-    const nbHits = new Hit_helper(this.data);
-    const template =  hogan.compile(`
-      <h2 class="h4">Il y a ${ this.data.nbHits } résultats</h2>
-    `);
-    return template.render();
   };
 };
